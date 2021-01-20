@@ -26,6 +26,18 @@ body {
   border-radius: 20%;
 }
 
+.btnStart {
+  margin: 25px ;
+  display: inline-block;
+  height: 80px;
+  width: 150px;
+  border: 10px solid black;
+  border-radius: 20%;
+  color:white;
+  background-color:orange;
+  text-transform: center;
+}
+
 .game-over {
   background-color: red;
   opacity: 0.8;
@@ -53,14 +65,14 @@ body {
 }
 
 
-@media (max-width:900px) {
+@media (max-width:1120px) {
 
 
   .btn {
-    margin: 25px;
+    margin: 55px;
     display: inline-block;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     border: 10px solid black;
     border-radius: 20%;
   }
