@@ -49,7 +49,7 @@ function checkSequence() {
   if (gameSequence.length > playerSequence.length) {
     if (checkArrays(gameSequence, playerSequence)) {
       return;
-    }else{
+    } else {
       gameOver();
     }
 
@@ -129,6 +129,7 @@ $(".btn").click(function(event) {
       play(botonId);
 
       break;
+
     default:
       console.log("Fuera del case de botones");
 
@@ -136,6 +137,11 @@ $(".btn").click(function(event) {
 
 });
 
+$("#start").click(function(event) {
+  var botonId = event.currentTarget.id;
+  animacionBoton(botonId);
+  startGame();
+});
 
 
 function play(botonId) {
