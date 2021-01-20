@@ -51,3 +51,26 @@ body {
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
+
+
+@media (max-width:900px) {
+
+
+  .btn {
+    margin: 25px;
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: 10px solid black;
+    border-radius: 20%;
+  }
+
+  .container {
+    display: block;
+    width: 100%;
+    margin: auto;
+
+  }
+
+
+}
