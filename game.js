@@ -22,7 +22,7 @@ function startGame() {
 function gameOver() {
   makeSound("sounds/wrong.mp3");
   $("h1").text("Perdiste :( Presiona A para comenzar de nuevo. Puntaje: " + score);
-  playerSequence=[];
+  playerSequence = [];
   playing = false;
 }
 
@@ -46,25 +46,34 @@ function arrayEquals(a, b) {
 
 function checkSequence() {
 
-  if (checkArrays(gameSequence, playerSequence)) {
+  if (gameSequence.length > playerSequence.length) {
+    if (checkArrays(gameSequence, playerSequence)) {
+      return;
+    }else{
+      gameOver();
+    }
+
+  } else if (checkArrays(gameSequence, playerSequence)) {
     score++;
     $("h1").text("A JUGAR! Puntaje: " + score);
 
-    playerSequence=[];
-    sequenceCount=0;
+    playerSequence = [];
+    sequenceCount = 0;
     nextSequence();
   } else {
     gameOver();
   }
 
+
+
 }
 
-function checkArrays(gameSeq,playerSeq){
-var igual=false;
-  for(var i=0;i<playerSeq.length;i++){
-    if(gameSeq[i]===playerSeq[i]){
-      igual=true;
-    }else{
+function checkArrays(gameSeq, playerSeq) {
+  var igual = false;
+  for (var i = 0; i < playerSeq.length; i++) {
+    if (gameSeq[i] === playerSeq[i]) {
+      igual = true;
+    } else {
       return false;
     }
   }
@@ -129,14 +138,12 @@ $(".btn").click(function(event) {
 
 
 
-function play(botonId){
+function play(botonId) {
 
-  if (playing && sequenceCount < gameSequence.length) {
+  if (playing && sequenceCount <= gameSequence.length) {
     playerSequence.push(botonId);
     sequenceCount++;
-    if(sequenceCount==gameSequence.length){
-      checkSequence();
-    }
+    checkSequence();
   }
 
 }
@@ -164,9 +171,9 @@ function gameSequenceAnimation() {
   }
 
   function setDelay(i) {
-    setTimeout(function(){
+    setTimeout(function() {
       animacionBoton(gameSequence[i]);
-    }, (i+1)*1000);
+    }, (i + 1) * 1000);
   }
 
 }
@@ -189,6 +196,6 @@ function animacionBoton(id) {
   setTimeout(function() {
     $("#" + id).removeClass("pressed");
   }, 100);
-  makeSound("sounds/"+id+".mp3")
+  makeSound("sounds/" + id + ".mp3")
 
 }
